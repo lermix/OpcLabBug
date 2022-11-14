@@ -1,0 +1,17 @@
+[Bb]in/
+[Oo]bj/
+packages/
+.vs/
+*.user
+*.suo
+Release/
+Debug/
+*.dbmdl
+desktop.ini
+*.orig
+UpgradeLog.htm
+*.sdf
+*.opendb
+*.jfm
+logs
+ComponentsGenerated.wxs

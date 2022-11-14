@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\amuller\\source\\repos\\OpcLabsBug\\OpcLabsBug\\OpcLabsBug.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\amuller\\source\\repos\\OpcLabsBug\\OpcLabsBug\\OpcLabsBug.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\amuller\\source\\repos\\OpcLabsBug\\OpcLabsBug\\OpcLabsBug.csproj",
+        "projectName": "OpcLabsBug",
+        "projectPath": "C:\\Users\\amuller\\source\\repos\\OpcLabsBug\\OpcLabsBug\\OpcLabsBug.csproj",
+        "packagesPath": "C:\\Users\\amuller\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\amuller\\source\\repos\\OpcLabsBug\\OpcLabsBug\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\amuller\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "OpcLabs.QuickOpc": {
+              "target": "Package",
+              "version": "[5.63.246, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
