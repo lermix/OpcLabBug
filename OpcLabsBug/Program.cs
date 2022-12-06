@@ -5,6 +5,7 @@ using OpcLabs.EasyOpc.UA.Extensions;
 using OpcLabs.EasyOpc.UA.OperationModel;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace OpcLabsBug
 {
@@ -12,10 +13,19 @@ namespace OpcLabsBug
 	{
 		private static EasyUAClient client;
 
+		[MTAThread]
 		static void Main( string[] args )
 		{
-			UAEndpointDescriptor endpointDescriptor = new UAEndpointDescriptor( "opc.tcp://127.0.0.1" ).WithUserNameIdentity( "user", "pass" );
 			client = new EasyUAClient();
+
+			subscribe();
+		}
+
+		private static void subscribe()
+		{
+			UAEndpointDescriptor endpointDescriptor = new UAEndpointDescriptor( "opc.tcp://IIS3.adnet.local:53530/OPCUA/SimulationServer" );
+			if ( client == null )
+				client = new EasyUAClient();
 
 			client.EventNotification += Client_EventNotification;
 			UAAttributeFieldCollection uAAttributeFields = UABaseEventObject.AllFields;
@@ -24,30 +34,6 @@ namespace OpcLabsBug
 				UAObjectIds.Server,
 				0,
 				uAAttributeFields );
-
-			List<string> recordIds = new List<string>
-			{
-				"ns=3;s=\"DB_INTS_RO\".int5",
-				"ns=3;s=\"DB_INTS_RO\".int6",
-				"ns=3;s=\"DB_INTS_RO\".int7",
-				"ns=3;s=\"DB_INTS_RO\".int8",
-				"ns=3;s=\"DB_INTS_RO\".dint5",
-				"ns=3;s=\"DB_INTS_RO\".dint6",
-				"ns=3;s=\"DB_INTS_RO\".dint7",
-				"ns=3;s=\"DB_INTS_RO\".dint8",
-			};
-
-			foreach ( string recordId in recordIds )
-			{
-				if ( !string.IsNullOrEmpty( recordId ) )
-					client.SubscribeDataChange( endpointDescriptor, recordId, 0, ProcessDataChange );
-			}
-
-
-			while ( Console.ReadLine() != "end" )
-			{
-				Console.Clear();
-			}
 		}
 
 		private static void ProcessDataChange( object sender, EasyUADataChangeNotificationEventArgs eventArgs )
